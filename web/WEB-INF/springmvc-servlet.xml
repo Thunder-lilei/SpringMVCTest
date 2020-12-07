@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--    &lt;!&ndash; 配置HandlerMapping 根据beanname找到对应Controller &ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping"></bean>-->
+
+<!--    &lt;!&ndash; 配置Controller &ndash;&gt;-->
+<!--    <bean name="/hello.do" class="HelloWorldServlet"></bean>-->
+
+    <!-- springmvc 注解驱动 -->
+    <mvc:annotation-driven/>
+    <!-- 扫描器 -->
+    <context:component-scan base-package="pers"/>
+
+<!--    &lt;!&ndash; 根据简单URL 查找Controller &ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="mappings">-->
+<!--            <props>-->
+<!--                <prop key="/helloUrl.do">HelloUrlServlet</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 控制类的类名访问Controller 访问时类名首字母需要小写 &ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>-->
+
+<!--    <bean class="pers.lilei.test.controller.HelloClassServlet"></bean>-->
+<!--    <bean id="HelloUrlServlet" class="pers.lilei.test.controller.HelloUrlServlet"></bean>-->
+
+    <!-- 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀 -->
+        <property name="prefix" value="/views/"></property>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+</beans>
